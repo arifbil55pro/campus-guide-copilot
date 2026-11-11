@@ -14,6 +14,10 @@ const CampusMap = dynamic(
 );
 
 export default function NavigasiPage() {
+        const handleRoomSelect = (room) => {
+          setSelectedRoom(room);
+          setRoomStatus(null);
+        };
 
         {/* ===== STATE DATA RUANGAN ===== */}
 
@@ -57,7 +61,6 @@ export default function NavigasiPage() {
 
           useEffect(() => {
             if (!selectedRoom) {
-              setRoomStatus(null);
               return;
             }
 
@@ -206,7 +209,7 @@ export default function NavigasiPage() {
                 </p>
 
                <button
-                  onClick={() => setSelectedRoom(room)}
+                  onClick={() => handleRoomSelect(room)}
                   className="mt-4 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700"
                 >
                   Lihat Rute
