@@ -15,7 +15,7 @@ export default function Home() {
   /* ===== DATA MAHASISWA AKTIF ===== */
 const student = {
   nim: "2301001",
-  nama: "Arif",
+  nama: "Mahasiswa",
 };
 
   /* ===== SUGGESTION CHIPS ===== */

@@ -591,6 +591,8 @@ Fokus utama kamu hanya pada 3 area berikut:
 - Perpustakaan
 - Fasilitas kampus
 - Lokasi dan arah menuju tempat di kampus
+- Gunakan data 'deskripsi_lokasi' untuk melanjutkan keberadaan gedung atau lokasi.
+- JANGAN PERNAH menampilkan angka kordinat, latitude, atau longitude, atau longitude dalam balasanmu.
 
 3. LAYANAN MAHASISWA
 - Layanan administrasi mahasiswa
@@ -822,8 +824,7 @@ Jawab dalam bahasa Indonesia yang jelas dan ramah.
               id,
               nama,
               tipe,
-              latitude,
-              longitude
+              deskripsi_lokasi
             FROM locations
             WHERE nama ILIKE $1
             ORDER BY id
