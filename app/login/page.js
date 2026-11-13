@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function LoginPage() {
   const router = useRouter();
   const [nim, setNim] = useState("");
-  const [nama, setNama] = useState("");
+  const [pin, setPin] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,7 +19,7 @@ export default function LoginPage() {
       const response = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nim, nama }),
+        body: JSON.stringify({ nim, pin }),
       });
       const data = await response.json();
 
@@ -65,12 +65,15 @@ export default function LoginPage() {
           </label>
 
           <label className="block text-sm font-medium text-slate-700">
-            Nama lengkap
+            PIN 6 digit
             <input
-              value={nama}
-              onChange={(event) => setNama(event.target.value)}
+              value={pin}
+              onChange={(event) => setPin(event.target.value)}
               className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-              placeholder="Nama sesuai database"
+              placeholder="Masukkan 6 angka"
+              inputMode="numeric"
+              maxLength={6}
+              pattern="\d{6}"
               required
             />
           </label>
