@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [messages, setMessages] = useState([]);
@@ -12,11 +13,37 @@ export default function Home() {
 
   const messagesEndRef = useRef(null);
 
-  /* ===== DATA MAHASISWA AKTIF ===== */
-const student = {
-  nim: "2301001",
-  nama: "Mahasiswa",
-};
+  const router = useRouter();
+  const [student, setStudent] = useState(null);
+  const [isCheckingSession, setIsCheckingSession] = useState(true);
+
+  useEffect(() => {
+    async function loadSession() {
+      try {
+        const response = await fetch("/api/auth/me");
+
+        if (!response.ok) {
+          router.replace("/login");
+          return;
+        }
+
+        const data = await response.json();
+        setStudent(data.student);
+      } catch (error) {
+        console.error("Session Check Error:", error);
+        router.replace("/login");
+      } finally {
+        setIsCheckingSession(false);
+      }
+    }
+
+    loadSession();
+  }, [router]);
+
+  const handleLogout = async () => {
+    await fetch("/api/logout", { method: "POST" });
+    router.replace("/login");
+  };
 
   /* ===== SUGGESTION CHIPS ===== */
   const suggestions = [
@@ -110,6 +137,14 @@ const student = {
     }
   };
 
+  if (isCheckingSession || !student) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-slate-50">
+        <p className="text-sm text-slate-500">Memeriksa sesi login...</p>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50/70 via-slate-50 to-red-50/30 px-4 py-8 md:px-6 md:py-12">
       <div className="mx-auto max-w-4xl">
@@ -150,6 +185,12 @@ const student = {
             </div>
 
             <div className="flex items-center gap-3">
+              <button
+                onClick={handleLogout}
+                className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-red-200 hover:bg-red-50 hover:text-red-600"
+              >
+                Keluar
+              </button>
               {/* TOMBOL RESET CHAT */}
               {messages.length > 0 && (
                 <button
