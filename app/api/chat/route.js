@@ -594,7 +594,7 @@ Fokus utama kamu hanya pada 3 area berikut:
 - Gunakan data 'deskripsi_lokasi' untuk melanjutkan keberadaan gedung atau lokasi.
 - JANGAN PERNAH menampilkan angka kordinat, latitude, atau longitude, atau longitude dalam balasanmu.
 
-3. LAYANAN MAHASISWA
+3. LAYANAN MAHASISWA      
 - Layanan administrasi mahasiswa
 - Surat dan dokumen mahasiswa
 - Lokasi layanan

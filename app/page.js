@@ -193,7 +193,7 @@ export default function Home() {
 
   return (
     <main
-      className={`relative min-h-screen overflow-x-hidden px-4 py-8 transition-colors duration-300 md:px-6 md:py-12 ${
+      className={`relative min-h-screen overflow-x-hidden px-4 pt-20 pb-8 transition-colors duration-300 md:px-6 md:py-12 ${
         isDark
           ? "bg-[#070B14] text-white"
           : "bg-gradient-to-br from-slate-100 via-blue-50 to-red-50/60 text-slate-900"
@@ -264,7 +264,7 @@ export default function Home() {
       <div className="relative z-10 mx-auto max-w-4xl">
         {/* ===== HEADER ===== */}
         <header
-          className={`mb-8 flex items-start justify-between gap-6 border-b pb-6 pr-12 sm:pr-0 ${
+          className={`mb-8 flex items-start justify-between gap-4 border-b pb-6 ${
             isDark ? "border-white/10" : "border-blue-200/70"
           }`}
         >
