@@ -187,7 +187,7 @@ export default function LoginPage() {
               isDark ? "text-slate-200" : "text-slate-700"
             }`}
           >
-            NIM
+            Nomor Induk Mahasiswa
             <input
               value={nim}
               onChange={(event) => setNim(event.target.value)}
@@ -196,7 +196,7 @@ export default function LoginPage() {
                   ? "border-white/15 bg-black/40 text-white placeholder-slate-500 focus:border-blue-400 focus:bg-black/60 focus:ring-2 focus:ring-blue-500/30"
                   : "border-slate-300/80 bg-white/75 text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
               }`}
-              placeholder="Contoh: 2501402028"
+              placeholder="Masukkan NIM anda"
               inputMode="numeric"
               required
             />

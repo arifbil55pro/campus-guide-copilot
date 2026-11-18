@@ -75,9 +75,9 @@ export default function Home() {
 
   /* ===== SUGGESTION CHIPS ===== */
   const suggestions = [
-    "Cek status KRS saya",
-    "Buat draft permohonan KRS terlambat",
     "Di mana lokasi Perpustakaan?",
+    "Di mana letak Gedung Kuliah Terpadu",
+    "Di mana letak Gedung Informatika",
     "Jadwal kuliah semester ini",
   ];
 
