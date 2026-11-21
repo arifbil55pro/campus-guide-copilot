@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "set-pin": "node scripts/set-student-pin.mjs"
+    "set-pin": "node scripts/set-student-pin.mjs",
+    "setup-rfid": "node scripts/setup-rfid-schema.mjs",
+    "register-rfid": "node scripts/register-rfid-card.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.24.0",
